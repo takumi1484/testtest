@@ -16,15 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
 Route::group(['middleware' => 'api'], function () {
-    Route::resource('postapi','PostsController');
+    Route::resource('tasks',  'TaskController');
 });
-
-Route::group(['middleware' => 'api'], function () {
-    Route::resource('roomapi','RoomsController');
-});
-
-Route::resource('jsonpost',  'PostsController');//元アドレスにjson/{id}でapi確認ができる
-Route::resource('jsonroom',  'RoomsController');
